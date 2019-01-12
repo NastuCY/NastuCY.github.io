@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[js对象方法总结]]></title>
+    <url>%2F2019%2F01%2F12%2Fjs%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[js数组方法总结]]></title>
+    <url>%2F2019%2F01%2F12%2Fjs%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试文章]]></title>
+    <url>%2F2018%2F01%2F12%2F%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[css笔记]]></title>
+    <url>%2F2016%2F10%2F12%2Fcss%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[常见知识归纳1. 盒子模型2. css 选择器3. css 三大特性4. css3 常用样式 1 盒子模型w3c： content, padding, border, margin ie: content, margin, 其中 content 包含了 padding 和 border 2 css 选择器id选择器(#myid)、类选择器(.myclassname)、标签选择器(div, h1, p)、相邻选择器(h1 + p)、子选择器（ul &gt; li）、后代选择器（li a）、通配符选择器（*）、属性选择器（a[rel=”external”]）、伪类选择器（a:hover, li:nth-child） 3 css 三大特性继承、层叠性、权重 3.1 继承什么是继承？哪些样式可以继承？哪些样式不可以继承？ 继承：父节点具有某些属性样式，子节点没有设置这个样式，却能够表现出跟父节点相同的这个样式 可以继承的样式： font-size font-family (font 系列) color text-align text-decoration (text 系列) line-height 不可继承的样式： width padding border margin height 3.2 权重指一个节点，如果有多个相同的样式设定，如果确定采用哪一个? 优先级（就近原则）：!important &gt; 内联 &gt; [ id &gt; class &gt; tag ] !important 比内联优先级高 3.3 层叠性指同一个元素，可以设置多层样式，浏览器根据特定的层叠算法，计算出css样式对应的权重值，获胜的则应用到节点上。 4 css3 常用样式在编写CSS3样式时，不同的浏览器可能需要不同的前缀，这表示CSS属性或规则尚未成为W3C标准的一部分，是浏览器的私有属性，虽然目前较新的浏览器可能不需要前缀了了，但是为了更好的向前兼容前缀暂时还是不能少。 浏览器 前缀 chrome和safari -webkit firfox -moz IE -ms opera -o 4.1 border-radio 八个参数4.2 box-shadow 水平 垂直 模糊度 外延 颜色 inset4.3 text-shadow 水平 垂直 模糊度 颜色4.4 transparenttransparent是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值。在CSS1中，transparent被用来作为background-color的一个参数值，用于表示背景透明。在CSS2中，border-color也开始接受transparent作为参数值。在CSS3中，transparent被延伸到任何一个有color值的属性上。 4.5 设置服务器端字体 @font-face12345@font-face&#123; font-family:name; src:url("fonts/Fontin_Sans_B_45b.otf") format("opentype"); font-weight:normal;&#125; //name用来声明使用服务端的字体。//format用来声明字体文件的格式，可以省略文件格式的声明而单独使用src属性值。字体文件的格式有哪些（OpenType与TrueType,前者的属性值为opentype，后者的属性值为truetype；前者的文件扩展名为.otf，后者的为.ttf）注：在IE中使用时，只能使用微软自带的Embedded OpenType字体文件，扩展名为.eot，同时不需要使用format属性值，用法如下1234@font-face&#123; font-family:BorderWeb; src:url(BORDERW0.eot);&#125; 最后通过 {font-family:name}来使用。 4.6 backgroundbackground-clip：border-box | padding-box | content-box | textpadding-box：从padding区域（不含padding）开始向外裁剪背景。border-box：从border区域（不含border）开始向外裁剪背景。content-box：从content区域开始向外裁剪背景。background-origin：padding-box|border-box|content-box该属性指定了背景从哪个区域(边框、补白或内容)开始绘制,但也仅仅能控制背景开始绘制的位置，你可以用这个属性在边框上绘制背景，但边框上的背景显不显示出来那就要由background-clip来决定了background-size:length：用长度值指定背景图像大小。不允许负值。percentage：用百分比指定背景图像大小。不允许负值。auto：背景图像的真实大小。cover：将背景图像等比缩放到完全覆盖容器，背景图像有可能超出容器。contain：将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。 4.7 background-image 添加多张图片1234567div&#123; background-image:url(flower-red.png), url(flower-green.png),url(sky.jpg); background-repeat: no-repeat, repeat-x, no-repeat; background-position: 3% 98%,85%, center center, top; width: 300px; padding: 90px 0px; &#125; 注：第一个定义的背景图片在最上面的，最后定义的是在最下面的。使用background-repeat和background-position可以单独指定背景图像中某个文件的平铺方式与放置的位置]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+</search>
