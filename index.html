@@ -281,6 +281,285 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/13/js运行机制/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenyans">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈岩的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/13/js运行机制/" itemprop="url">js运行机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T14:26:41+08:00">
+                2019-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h1><ul>
+<li>进程与线程</li>
+<li>浏览器是多进程的<ul>
+<li>浏览器包含哪些进程</li>
+<li>多进程的优势</li>
+<li>浏览器内核(渲染过程)</li>
+<li>Browser进程与浏览器内核（Renderer进程）的通信过程</li>
+</ul>
+</li>
+<li>梳理浏览器内核中线程的关系<ul>
+<li>GUI渲染线程与JS引擎线程互斥</li>
+<li>JS阻塞页面加载</li>
+<li>WebWorker,JS的多线程？</li>
+<li>WebWorker与SharedWorker</li>
+</ul>
+</li>
+<li>浏览器的渲染过程<ul>
+<li>load事件与DOMContentLoaded事件的先后</li>
+<li>css加载是否会阻塞dom树的渲染</li>
+<li>普通图层和复合图层</li>
+</ul>
+</li>
+<li>从EvenLoop谈Js的运行机制<ul>
+<li>事件循环机制的进一步说明</li>
+<li>单独说说定时器</li>
+<li>setTimeout而不是setInterval</li>
+</ul>
+</li>
+<li>事件循环进阶：macrotask与microtask</li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/13/js运行机制/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/05/node/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenyans">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈岩的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/05/node/" itemprop="url">node</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-05T16:07:48+08:00">
+                2019-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="什么是NodeJs"><a href="#什么是NodeJs" class="headerlink" title="什么是NodeJs"></a>什么是NodeJs</h1><ul>
+<li>编写高性能网络服务器的Javascript工具包(用JS开发服务端程序)</li>
+<li>单线程、异步、事件驱动</li>
+<li>特点：快，耗内存多<ul>
+<li>网上一个百万级并发测试，未优化的情况下1M的链接消耗了16G的内存</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/js对象方法总结/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -374,7 +653,8 @@
       
         
           
-            
+            <p>Object.assign()<br>通过复制一个或多个对象来创建一个新的对象。<br>Object.create()<br>使用指定的原型对象和属性创建一个新对象。<br>Object.defineProperty()<br>给对象添加一个属性并指定该属性的配置。<br>Object.defineProperties()<br>给对象添加多个属性并分别指定它们的配置。<br>Object.entries()<br>返回给定对象自身可枚举属性的[key, value]数组。<br>Object.freeze()<br>冻结对象：其他代码不能删除或更改任何属性。<br>Object.getOwnPropertyDescriptor()<br>返回对象指定的属性配置。<br>Object.getOwnPropertyNames()<br>返回一个数组，它包含了指定对象所有的可枚举或不可枚举的属性名。<br>Object.getOwnPropertySymbols()<br>返回一个数组，它包含了指定对象自身所有的符号属性。<br>Object.getPrototypeOf()<br>返回指定对象的原型对象。<br>Object.is()<br>比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）。<br>Object.isExtensible()<br>判断对象是否可扩展。<br>Object.isFrozen()<br>判断对象是否已经冻结。<br>Object.isSealed()<br>判断对象是否已经密封。<br>Object.keys()<br>返回一个包含所有给定对象自身可枚举属性名称的数组。<br>Object.preventExtensions()<br>防止对象的任何扩展。<br>Object.seal()<br>防止其他代码删除对象的属性。<br>Object.setPrototypeOf()<br>设置对象的原型（即内部[[Prototype]]属性）。<br>Object.values()<br>返回给定对象自身可枚举值的数组。</p>
+
           
         
       
@@ -687,6 +967,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/js基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenyans">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈岩的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/22/js基础/" itemprop="url">js基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T10:51:55+08:00">
+                2017-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a>动态类型</h1><p>JavaScript 是一种<code>弱类型</code>或者说<code>动态</code>语言。这意味着你不用提前声明变量的类型，在程序运行过程中，类型会被自动确定。这也意味着你可以使用同一个变量保存不同类型的数据。</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>最新的 ECMAScript 标准定义了 7 种数据类型:</p>
+<ul>
+<li>6 种原始类型:<ul>
+<li>Boolean<br>有两个字面值 <code>true</code>和<code>false</code></li>
+<li>Null<br>值 <code>null</code> 是一个字面量，它不像<code>undefined</code> 是全局对象的一个属性。<code>null</code> 是表示缺少的标识，指示变量未指向任何对象。把<code>null</code> 作为尚未创建的对象，也许更好理解。在 APIs 中，<code>null</code> 常在返回类型是对象，但没关联值的地方使用。<br><code>null</code>表示一个空指针对象。</li>
+<li>Undefined<br>   一个没有被赋值的变量的类型是<code>undefined</code>，如果方法</li>
+<li>Number</li>
+<li>String</li>
+<li>Symbol (ECMAScript 6 新定义)</li>
+</ul>
+</li>
+<li>和 Object</li>
+</ul>
+<blockquote>
+<p>使用 typeof 操作符判断对象类型</p>
+</blockquote>
+<p># </p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>1.<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">MDN Array</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/12/css笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -868,7 +1286,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -890,7 +1308,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

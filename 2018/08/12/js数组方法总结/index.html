@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="陈岩的个人博客">
 <meta property="og:description" content="总结的一些常用数组方法1. join()方法2. push()和pop()方法3. shift()和unshift()方法4. sort()方法5. reserve()方法6. concat()方法7. slice()方法8. splice()方法9. indexOf()和lastIndexOf()方法10. forEach()方法11. map()方法12. filter()方法13. ever">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-13T10:09:00.675Z">
+<meta property="og:updated_time" content="2019-02-12T04:50:45.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数组方法总结">
 <meta name="twitter:description" content="总结的一些常用数组方法1. join()方法2. push()和pop()方法3. shift()和unshift()方法4. sort()方法5. reserve()方法6. concat()方法7. slice()方法8. splice()方法9. indexOf()和lastIndexOf()方法10. forEach()方法11. map()方法12. filter()方法13. ever">
@@ -380,7 +380,7 @@
 <h2 id="3-shift和unshift"><a href="#3-shift和unshift" class="headerlink" title="3. shift和unshift"></a>3. shift和unshift</h2><p><code>shift()</code>：删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined 。<br><code>unshift()</code>:将参数添加到原数组开头，并返回数组的长度 。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"Lily"</span>,<span class="string">"lucy"</span>,<span class="string">"Tom"</span>];</span><br><span class="line"><span class="keyword">var</span> count = arr.unshift(<span class="string">"Jack"</span>,<span class="string">"Sean"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(count); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//["Jack", "Sean", "Lily", "lucy", "Tom"]</span></span><br><span class="line"><span class="keyword">var</span> item = arr.shift();</span><br><span class="line"><span class="built_in">console</span>.log(item); <span class="comment">// Jack</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// ["Sean", "Lily", "lucy", "Tom"]</span></span><br></pre></td></tr></table></figure>
 <h2 id="4-sort"><a href="#4-sort" class="headerlink" title="4. sort"></a>4. sort</h2><p><code>sort()</code>：按升序排列数组项——即最小的值位于最前面，最大的值排在最后面，默认排序顺序是根据字符串Unicode码点。</p>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>compareFunction</code> | 可选<br>用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序。</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>compareFunction</code> | 可选<br>用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序。<br>如果没有指明 compareFunction ，那么元素会按照转换为的字符串的诸个字符的Unicode位点进行排序。例如 “Banana” 会被排列到 “cherry” 之前。当数字按由小到大排序时，9 出现在 80 之前，但因为（没有指明 compareFunction），比较的数字会先被转换为字符串，所以在Unicode顺序上 “80” 要比 “9” 要靠前</p>
 <blockquote>
 <p>如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：</p>
 <ul>
@@ -711,7 +711,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -733,7 +733,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

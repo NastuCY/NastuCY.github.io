@@ -64,7 +64,7 @@
 
 
 
-  <meta name="keywords" content="blog">
+  <meta name="keywords" content="js,js笔记,">
 
 
 
@@ -75,17 +75,20 @@
 
 
 
-<meta name="description" content="一个没有梦想的咸鱼。">
-<meta name="keywords" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈岩的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/01/index.html">
+<meta name="description" content="大纲 进程与线程 浏览器是多进程的 浏览器包含哪些进程 多进程的优势 浏览器内核(渲染过程) Browser进程与浏览器内核（Renderer进程）的通信过程   梳理浏览器内核中线程的关系 GUI渲染线程与JS引擎线程互斥 JS阻塞页面加载 WebWorker,JS的多线程？ WebWorker与SharedWorker   浏览器的渲染过程 load事件与DOMContentLoaded事件的">
+<meta name="keywords" content="js,js笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js运行机制">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/js运行机制/index.html">
 <meta property="og:site_name" content="陈岩的个人博客">
-<meta property="og:description" content="一个没有梦想的咸鱼。">
+<meta property="og:description" content="大纲 进程与线程 浏览器是多进程的 浏览器包含哪些进程 多进程的优势 浏览器内核(渲染过程) Browser进程与浏览器内核（Renderer进程）的通信过程   梳理浏览器内核中线程的关系 GUI渲染线程与JS引擎线程互斥 JS阻塞页面加载 WebWorker,JS的多线程？ WebWorker与SharedWorker   浏览器的渲染过程 load事件与DOMContentLoaded事件的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/02/13/js运行机制/articlex.png">
+<meta property="og:updated_time" content="2019-02-14T01:54:30.275Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈岩的个人博客">
-<meta name="twitter:description" content="一个没有梦想的咸鱼。">
+<meta name="twitter:title" content="js运行机制">
+<meta name="twitter:description" content="大纲 进程与线程 浏览器是多进程的 浏览器包含哪些进程 多进程的优势 浏览器内核(渲染过程) Browser进程与浏览器内核（Renderer进程）的通信过程   梳理浏览器内核中线程的关系 GUI渲染线程与JS引擎线程互斥 JS阻塞页面加载 WebWorker,JS的多线程？ WebWorker与SharedWorker   浏览器的渲染过程 load事件与DOMContentLoaded事件的">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/13/js运行机制/articlex.png">
 
 
 
@@ -115,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/01/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/13/js运行机制/">
 
 
 
 
 
-  <title>归档 | 陈岩的个人博客</title>
+  <title>js运行机制 | 陈岩的个人博客</title>
   
 
 
@@ -140,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -266,72 +269,261 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 7 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/13/js运行机制/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenyans">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈岩的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/12/测试文章/" itemprop="url">
-              
-                <span itemprop="name">测试文章</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">js运行机制</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-01-12T20:44:58+08:00" content="2018-01-12">
-          01-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-13T14:26:41+08:00">
+                2019-02-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h1 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h1><ul>
+<li>进程与线程</li>
+<li>浏览器是多进程的<ul>
+<li>浏览器包含哪些进程</li>
+<li>多进程的优势</li>
+<li>浏览器内核(渲染过程)</li>
+<li>Browser进程与浏览器内核（Renderer进程）的通信过程</li>
+</ul>
+</li>
+<li>梳理浏览器内核中线程的关系<ul>
+<li>GUI渲染线程与JS引擎线程互斥</li>
+<li>JS阻塞页面加载</li>
+<li>WebWorker,JS的多线程？</li>
+<li>WebWorker与SharedWorker</li>
+</ul>
+</li>
+<li>浏览器的渲染过程<ul>
+<li>load事件与DOMContentLoaded事件的先后</li>
+<li>css加载是否会阻塞dom树的渲染</li>
+<li>普通图层和复合图层</li>
+</ul>
+</li>
+<li>从EvenLoop谈Js的运行机制<ul>
+<li>事件循环机制的进一步说明</li>
+<li>单独说说定时器</li>
+<li>setTimeout而不是setInterval</li>
+</ul>
+</li>
+<li>事件循环进阶：macrotask与microtask<a id="more"></a>
+</li>
+</ul>
+<h2 id="区分线程与进程"><a href="#区分线程与进程" class="headerlink" title="区分线程与进程"></a>区分线程与进程</h2><p>先看下进程与线程的一个比喻：</p>
+<blockquote>
+<p>进程是一个独立的工厂，工厂有他独立的资源<br>工厂之间相互独立<br>线程是工厂里的工人,多个工人协同完成任务<br>工厂内有一个或多个工人<br>工人之间共享空间</p>
+</blockquote>
+<p>完善一下：</p>
+<blockquote>
+<p>工厂的资源 -&gt; 系统分配的内存（独立的一块内存）<br>工厂之间相互独立 -&gt; 进程之间相互独立<br>多人协作共同完成任务 -&gt; 多个线程在进程中协作完成任务<br>工厂内有一个或多个工人 -&gt; 一个进程有一个或多个线程组成<br>工人之间共享空间 -&gt; 同一个进程下的各个线程之间共享程序的内存空间（包括代码段、数据集、堆等）</p>
+</blockquote>
+<p>用官方一点的话进行总结是：</p>
+<ul>
+<li>进程是CPU进行资源分配的最小单位（系统会给他分配内存），是能拥有资源和独立运行的最小单位</li>
+<li>线程是CPU调度的最小单位（线程是建立在进程基础上的一次程序运行单位，一个进程可以有多个线程）</li>
+</ul>
+<p><strong>tips</strong></p>
+<ul>
+<li>不同进程之间也可以通信，不过代价比较大</li>
+<li>现在，一般通用的叫法：<code>单线程与多线程</code>，都是指在一个进程内的单和多。</li>
+</ul>
+<h2 id="浏览器是多线程的"><a href="#浏览器是多线程的" class="headerlink" title="浏览器是多线程的"></a>浏览器是多线程的</h2><p>理解了进程与线程的区别后，接下来对浏览器进行一定程度的认识,先看下简化理解：</p>
+<ul>
+<li>浏览器是多进程的</li>
+<li>浏览器之所以能够运行，是因为系统给他的进程分配了资源（cpu、内存）</li>
+<li>简单点理解，每打开一个tab页，就相当于创建了一个独立的浏览器进程。</li>
+</ul>
+<p><strong>注意:</strong>浏览器也有自己的优化机制，多个空白tab页打开后，会被合并。</p>
+<h3 id="浏览器包含了哪些进程"><a href="#浏览器包含了哪些进程" class="headerlink" title="浏览器包含了哪些进程?"></a>浏览器包含了哪些进程?</h3><p>主要进程有：<br>1.Browser进程：浏览器的主要进程（负责协调、主控）之有一个，作用有：</p>
+<ul>
+<li>负责浏览器的页面展示 ，与用户交互，如前进、后退等。</li>
+<li>负责各个页面的管理，创建和销毁其他进程。</li>
+<li>将Renderer进程得到的内存中的Bitmap，绘制到用户界面。</li>
+<li>网络资源的管理，下载等</li>
+</ul>
+<p>2.第三方插件进程：每种类型的插件对应一个进程，仅当使用改插件时才创建。<br>3.GPU进程：最多一个，用于3D绘制等。<br>4.浏览器渲染进程：（浏览器内核）（Renderer进程，内部是多线程的）默认每个Tab页是一个进程，互不影响，主要作用为：</p>
+<ul>
+<li>页面渲染，脚本执行，事件处理等。</li>
+</ul>
+<blockquote>
+<p>在浏览器打开一个网页相当于起了一个进程（进程内有自己的多线程）。</p>
+</blockquote>
+<h3 id="浏览器多线程的优势"><a href="#浏览器多线程的优势" class="headerlink" title="浏览器多线程的优势"></a>浏览器多线程的优势</h3><p>相比于单线程的浏览器，多线程浏览器有以下优势：</p>
+<ul>
+<li>避免单个page crash(页面崩溃)影响整个浏览器。</li>
+<li>避免第三方插件崩溃影响整个浏览器。</li>
+<li>多线程充分利用多核优势。</li>
+<li>方便使用沙盒模型隔离插件等进程，提高浏览器稳定性。</li>
+</ul>
+<p>内存消耗有点大。空间换时间。</p>
+<h3 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h3><p>对于前端来说，最重要的进程是浏览器的渲染进程。<br>页面的渲染，JS的执行，事件的循环，都在这个进程内执行。</p>
+<p>请牢记，<strong>浏览器的渲染进程是多线程的。</strong></p>
+<p>浏览器的渲染进程包含哪些线程？（列一些常驻的）<br>1.GUI渲染线程</p>
+<ul>
+<li>负责渲染浏览器页面，解析HTML,CSS, 构建DOM树和RenderObject树，布局和重绘等。</li>
+<li>当界面需要重绘（Repaint,样式改变）或由于某些操作引发回流（reflow）时，该线程就会执行。</li>
+<li>注意，<strong>GUI渲染线程与JS引擎线程是互斥的</strong>，当js引擎执行时GUI线程会被挂起，（相当于被冻结了），GUI更新会被保存在一个队列中，等到JS引擎空闲时立即执行。</li>
+</ul>
+<p>2.JS引擎线程</p>
+<ul>
+<li>也称作JS内核，负责处理Javascript脚本程序（例如V8引擎）。</li>
+<li>JS引擎线程负责解析Javascript脚本，运行代码。</li>
+<li>JS引擎一直等待任务队列中任务的到来，然后加以处理,一个Tab页（Renderer进程）中无论什么时候都只有一个JS线程在运行JS程序。</li>
+<li>同样注意：<strong>GUI渲染线程与JS引擎线程是互斥的</strong>，所以如果JS执行时间过程，就会造成页面渲染不连贯，导致页面渲染加载阻塞。</li>
+</ul>
+<p>3.事件触发线程</p>
+<ul>
+<li>归属于浏览器而不是JS引擎，用来控制事件循环。（可以理解为，JS引擎自己都忙不过来，需要浏览器另开线程协助）</li>
+<li>当JS引擎执行代码块如SetTimeout时（也可以来自于浏览器的其他线程，如鼠标点击，Ajax请求等），会将对应任务添加到事件线程中。</li>
+<li>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。</li>
+<li>由于JS的单线程关系，所有这些待处理队列中的事件都得排队等待JS引擎处理。（当JS引擎空闲时才会去执行）</li>
+</ul>
+<p>4.定时器触发线程</p>
+<ul>
+<li>传说中的setTimeout与setInterval所在线程。</li>
+<li>浏览器定时计数器并不是由js引擎计数的（因为js引擎是单线程的，如果处于阻塞线程状态就会影响计数的准确性）</li>
+<li>因此通过单独的线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）</li>
+<li>注意，W3C与HTML标准中规定，规定要求setTimeout低于4ms的时间间隔算为4ms。</li>
+</ul>
+<p>5.异步http请求线程</p>
+<ul>
+<li>在XMLHttpRequest在连接之后通过浏览器新开一个线程请求。</li>
+<li>在检测到状态变更时，如果设置有回调函数，异步线程就产生<strong>状态变更事件</strong>，将这个回调再放入事件队列中，再由JS引擎执行。</li>
+</ul>
+<p><img src="/2019/02/13/js运行机制/articlex.png" alt="浏览器内核"></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/js笔记/" rel="tag"># js笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/05/node/" rel="next" title="node">
+                <i class="fa fa-chevron-left"></i> node
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -339,6 +531,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -359,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -432,6 +637,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#大纲"><span class="nav-text">大纲</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区分线程与进程"><span class="nav-text">区分线程与进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器是多线程的"><span class="nav-text">浏览器是多线程的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器包含了哪些进程"><span class="nav-text">浏览器包含了哪些进程?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器多线程的优势"><span class="nav-text">浏览器多线程的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器内核"><span class="nav-text">浏览器内核</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -586,6 +807,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
