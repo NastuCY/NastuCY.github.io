@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="js,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="摘录自掘金原文链接：https://juejin.im/post/5c84b3b0e51d450cbe06ae8e">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js模块化编程">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/js模块化编程/index.html">
+<meta property="og:site_name" content="陈岩的个人博客">
+<meta property="og:description" content="摘录自掘金原文链接：https://juejin.im/post/5c84b3b0e51d450cbe06ae8e">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/10/169665dccafb2247?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/10/169665de2c04d247?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2019-03-20T02:38:36.338Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js模块化编程">
+<meta name="twitter:description" content="摘录自掘金原文链接：https://juejin.im/post/5c84b3b0e51d450cbe06ae8e">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/3/10/169665dccafb2247?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/js模块化编程/">
+
+
+
+
+
+  <title>js模块化编程 | 陈岩的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈岩的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/js模块化编程/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenyans">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈岩的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js模块化编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T10:20:20+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘录自掘金<br>原文链接：<a href="https://juejin.im/post/5c84b3b0e51d450cbe06ae8e" target="_blank" rel="noopener">https://juejin.im/post/5c84b3b0e51d450cbe06ae8e</a><br><a id="more"></a> </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="什么是模块化？"><a href="#什么是模块化？" class="headerlink" title="什么是模块化？"></a>什么是模块化？</h2><blockquote>
+<p>模块就是实现特定功能的一组方法,而模块化是将模块的代码创造自己的作用域，只向外部暴露公开的方法和变量，而这些方法之间高度解耦。</p>
+</blockquote>
+<h2 id="写-JS-为什么需要模块化编程？"><a href="#写-JS-为什么需要模块化编程？" class="headerlink" title="写 JS 为什么需要模块化编程？"></a>写 JS 为什么需要模块化编程？</h2><p>当写前端还只是处理网页的一些表单提交，点击交互的时候，还没有强化 JS 模块化的概念，当前端逻辑开始复杂，交互变得更多，数据量越来越庞大时，前端对 JS 模块化编程的需求就越加强烈。</p>
+<p>在很多场景中，我们需要考虑模块化：</p>
+<ol>
+<li>团队多人协作，需要引用别人的代码</li>
+<li>项目交接，我们在阅读和重构别人的代码</li>
+<li>代码审查时，检验你的代码是否规范，是否存在问题</li>
+<li>写完代码，回顾自己写的代码是否美观：）</li>
+<li>不同的环境，环境变量不同</li>
+</ol>
+<p>基于以上场景，所以，当前 JS 模块化主要是这几个目的：</p>
+<ol>
+<li>代码复用性</li>
+<li>功能代码松耦合</li>
+<li>解决命名冲突</li>
+<li>代码可维护性</li>
+<li>代码可阅读性</li>
+</ol>
+<p>先给结论：JS 的模块化编程经历了几个阶段：</p>
+<ol>
+<li>命名空间形式的代码封装</li>
+<li>通过立即执行函数(IIFE)创建的命名空间</li>
+<li>服务器端运行时 Nodejs 的 CommonJS 规范</li>
+<li>将模块化运行在浏览器端的 AMD/CMD 规范</li>
+<li>兼容 CMD 和 AMD 的 UMD 规范</li>
+<li>通过语言标准支持的 ES Module</li>
+</ol>
+<p>先给结论图：<br><img src="https://user-gold-cdn.xitu.io/2019/3/10/169665dccafb2247?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<h1 id="一、命名空间"><a href="#一、命名空间" class="headerlink" title="一、命名空间"></a>一、命名空间</h1><p>我们知道，在 ES6 之前，JS 是没有块作用域的，私有变量和方法的隔离主要靠函数作用域，公开变量和方法的隔离主要靠对象的属性引用。</p>
+<h2 id="封装函数"><a href="#封装函数" class="headerlink" title="封装函数"></a>封装函数</h2><p>在 JS 还没有模块化规范的时候，将一些通用的、底层的功能抽象出来，独立成一个个函数来实现模块化： 比方写一个 utils.js 工具函数文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  utils.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> x !== <span class="string">"number"</span> || <span class="keyword">typeof</span> y !== <span class="string">"number"</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> x !== <span class="string">"number"</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;script src=<span class="string">"./utils.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    add(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    square(<span class="number">4</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>通过 js 函数文件划分的方式，此时的公开函数其实是挂载到了全局对象 window 下，当在别人也想定义一个叫 add 函数，或者多个 js 文件合并压缩的时候，会存在命名冲突的问题。</p>
+<h2 id="挂载到全局变量下："><a href="#挂载到全局变量下：" class="headerlink" title="挂载到全局变量下："></a>挂载到全局变量下：</h2><p>后来我们想到通过挂载函数到全局对象字面量下的方式，利用 JAVA 包的概念，希望减轻命名冲突的严重性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mathUtils1 = &#123;</span><br><span class="line">    add: <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mathUtils2 = &#123;</span><br><span class="line">    add: <span class="function"><span class="keyword">function</span>(<span class="params">x, y, z</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y + z;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mathUtils.add();</span><br><span class="line"></span><br><span class="line">mathUtils.square();</span><br></pre></td></tr></table></figure>
+<p>这种方式仍然创建了全局变量，但如果包的路径很长，那么到最后引用方法可能就会以<code>module1.subModule.subSubModule.add</code>的方式引用代码了。</p>
+<h2 id="IIFE"><a href="#IIFE" class="headerlink" title="IIFE"></a>IIFE</h2><p>考虑模块存在私有变量，于是我们利用IIFE(立即执行表达式)创建闭包来封装私有变量：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        inc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            count += <span class="number">1</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        dec: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            count += <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.inc();</span><br><span class="line"><span class="built_in">module</span>.dec();</span><br></pre></td></tr></table></figure></p>
+<p>这样私有变量对于外部来说就是不可访问的，那如果模块需要引入其他依赖呢？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> utils = (<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $body = $(<span class="string">"body"</span>); </span><br><span class="line">    <span class="keyword">var</span> _private = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        foo: foo,</span><br><span class="line">        bar: bar</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure></p>
+<p>以上封装模块的方式叫作：模块模式，在 jQuery 时代，大量使用了模块模式:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"jquery.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"underscore.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"utils.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"base.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"main.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>jQuery 的插件必须在 JQuery.js 文件之后 ，文件的加载顺序被严格限制住，依赖越多,依赖关系越混乱，越容易出错。</p>
+<h1 id="二、CommonJS"><a href="#二、CommonJS" class="headerlink" title="二、CommonJS"></a>二、CommonJS</h1><p>Nodejs 的出现，让 JavaScript 能够运行在服务端环境中，此时迫切需要建立一个标准来实现统一的模块系统，也就是后来的 CommonJS。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math.js</span></span><br><span class="line">exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// base.js</span></span><br><span class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">"./math.js"</span>);</span><br><span class="line">math.add(<span class="number">2</span>, <span class="number">3</span>);  <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用核心模块</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">http.createServer(...).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure></p>
+<p>CommonJS 规定每个模块内部，module 代表当前模块，这个模块是一个对象，有 id,filename, loaded,parent, children, exports 等属性，module.exports 属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取 module.exports 变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils.js</span></span><br><span class="line"><span class="comment">// 直接赋值给 module.exports 变量</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"I'm utils.js module"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// base.js</span></span><br><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">"./utils.js"</span>)</span><br><span class="line">util();  <span class="comment">// I'm utils.js module</span></span><br><span class="line"></span><br><span class="line">或者挂载到 <span class="built_in">module</span>.exports 对象下</span><br><span class="line"><span class="built_in">module</span>.exports.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"I'm utils.js module"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// base.js</span></span><br><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">"./utils.js"</span>)</span><br><span class="line">util.say();</span><br></pre></td></tr></table></figure>
+<p>为了方便，Node 为每个模块提供一个 exports 自由变量，指向 module.exports。这等同在每个模块头部，有一行这样的命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> exports = <span class="built_in">module</span>.exports;</span><br></pre></td></tr></table></figure></p>
+<p>exports 和 module.exports 共享了同个引用地址，如果直接对 exports 赋值会导致两者不再指向同一个内存地址，但最终不会对 module.exports 起效。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.exports 可以直接赋值</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">'Hello world'</span>;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// exports 不能直接赋值</span></span><br><span class="line">exports = <span class="string">'Hello world'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>CommonJS 总结：<br>CommonJS 规范加载模块是同步的，用于服务端，由于 CommonJS 会在启动时把内置模块加载到内存中，也会把加载过的模块放在内存中。所以在 Node 环境中用同步加载的方式不会有很大问题。<br>另，CommonJS模块加载的是输出值的拷贝。也就是说，外部模块输出值变了，当前模块的导入值不会发生变化。</p>
+<h1 id="三、AMD"><a href="#三、AMD" class="headerlink" title="三、AMD"></a>三、AMD</h1><p>CommonJS 规范的出现，使得 JS 模块化在 NodeJS 环境中得到了施展机会。但 CommonJS 如果应用在浏览器端，同步加载的机制会使得 JS 阻塞 UI 线程，造成页面卡顿。<br>利用模块加载后执行回调的机制，有了后面的 RequireJS 模块加载器， 由于加载机制不同，我们称这种模块规范为 AMD(Asynchromous Module Definition 异步模块定义)规范, 异步模块定义诞生于使用 XHR + eval 的开发经验，是 RequireJS 模块加载器对模块定义的规范化产出。<br>AMD 的模块写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模块名 utils</span></span><br><span class="line"><span class="comment">// 依赖 jQuery, underscore</span></span><br><span class="line"><span class="comment">// 模块导出 foo, bar 属性</span></span><br><span class="line">&lt;script data-main=<span class="string">"scripts/main"</span> src=<span class="string">"scripts/require.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">  baseUrl: <span class="string">"script"</span>,</span><br><span class="line">  paths: &#123;</span><br><span class="line">    <span class="string">"jquery"</span>: <span class="string">"jquery.min"</span>,</span><br><span class="line">    <span class="string">"underscore"</span>: <span class="string">"underscore.min"</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 utils 模块，使用 jQuery 模块</span></span><br><span class="line">define(<span class="string">"utils"</span>, [<span class="string">"jQuery"</span>, <span class="string">"underscore"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">$, _</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> body = $(<span class="string">"body"</span>);</span><br><span class="line">    <span class="keyword">var</span> deepClone = _.deepClone(&#123;...&#125;);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        foo: <span class="string">"hello"</span>,</span><br><span class="line">        bar: <span class="string">"world"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>AMD 的特点在于：</p>
+<ol>
+<li>延迟加载</li>
+<li>依赖前置</li>
+</ol>
+<p>AMD 支持兼容 CommonJS 写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> someModule = <span class="built_in">require</span>(<span class="string">"someModule"</span>);</span><br><span class="line">  <span class="keyword">var</span> anotherModule = <span class="built_in">require</span>(<span class="string">"anotherModule"</span>);</span><br><span class="line"></span><br><span class="line">  someModule.sayHi();</span><br><span class="line">  anotherModule.sayBye();</span><br><span class="line"></span><br><span class="line">  exports.asplode = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    someModule.eat();</span><br><span class="line">    anotherModule.play();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h1 id="四、CMD"><a href="#四、CMD" class="headerlink" title="四、CMD"></a>四、CMD</h1><p>SeaJS 是国内 JS 大神玉伯开发的模块加载器，基于 SeaJS 的模块机制，所有 JavaScript 模块都遵循 CMD（Common Module Definition） 模块定义规范.</p>
+<p>CMD 模块的写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"scripts/sea.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// seajs 的简单配置</span></span><br><span class="line">seajs.config(&#123;</span><br><span class="line">  base: <span class="string">"./script/"</span>,</span><br><span class="line">  alias: &#123;</span><br><span class="line">    <span class="string">"jquery"</span>: <span class="string">"script/jquery/3.3.1/jquery.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载入口模块</span></span><br><span class="line">seajs.use(<span class="string">"./main"</span>)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 定义模块</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ utils.js</span></span><br><span class="line"><span class="regexp">define(function(require, exports, module) &#123;</span></span><br><span class="line"><span class="regexp">  exports.each = function (arr) &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 实现代码 </span></span><br><span class="line"><span class="regexp">  &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  exports.log = function (str) &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 实现代码</span></span><br><span class="line"><span class="regexp">  &#125;;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 输出模块</span></span><br><span class="line"><span class="regexp">define(function(require, exports, module) &#123;</span></span><br><span class="line"><span class="regexp">  var util = require('./u</span>til.js<span class="string">');</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  var a = require('</span>./a<span class="string">'); //在需要时申明，依赖就近</span></span><br><span class="line"><span class="string">  a.doSomething();</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  exports.init = function() &#123;</span></span><br><span class="line"><span class="string">    // 实现代码</span></span><br><span class="line"><span class="string">    util.log();</span></span><br><span class="line"><span class="string">  &#125;;</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="CMD-和-AMD-规范的区别："><a href="#CMD-和-AMD-规范的区别：" class="headerlink" title="CMD 和 AMD 规范的区别："></a>CMD 和 AMD 规范的区别：</h3><p>AMD推崇依赖前置，CMD推崇依赖就近：<br>AMD 的依赖需要提前定义，加载完后就会执行。 CMD 依赖可以就近书写，只有在用到某个模块的时候再去执行相应模块。 举个例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"I'm main"</span>);</span><br><span class="line">  <span class="keyword">var</span> mod1 = <span class="built_in">require</span>(<span class="string">"./mod1"</span>);</span><br><span class="line">  mod1.say();</span><br><span class="line">  <span class="keyword">var</span> mod2 = <span class="built_in">require</span>(<span class="string">"./mod2"</span>);</span><br><span class="line">  mod2.say();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    hello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"hello main"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// mod1.js</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"I'm mod1"</span>);</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"say: I'm mod1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// mod2.js</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"I'm mod2"</span>);</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"say: I'm mod2"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>以上代码分别用 Require.js 和 Sea.js 执行，打印结果如下：<br>Require.js:<br>先执行所有依赖中的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">I<span class="string">'m mod1</span></span><br><span class="line"><span class="string">I'</span>m mod2</span><br><span class="line">I<span class="string">'m main</span></span><br><span class="line"><span class="string">say: I'</span>m mod1</span><br><span class="line">say: I<span class="string">'m mod2</span></span><br></pre></td></tr></table></figure></p>
+<p>Sea.js:<br>用到依赖时，再执行依赖中的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I<span class="string">'m main</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I'</span>m mod1</span><br><span class="line">say: I<span class="string">'m mod1</span></span><br><span class="line"><span class="string">I'</span>m mod2</span><br><span class="line">say: I<span class="string">'m mod2</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="五、UMD"><a href="#五、UMD" class="headerlink" title="五、UMD"></a>五、UMD</h1><p>umd（Universal Module Definition） 是 AMD 和 CommonJS 的兼容性处理,提出了跨平台的解决方案。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">root, factory</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> exports === <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="comment">// commonJS</span></span><br><span class="line">        <span class="built_in">module</span>.exports = factory();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.amd) &#123;</span><br><span class="line">        <span class="comment">// AMD</span></span><br><span class="line">        define(factory);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 挂载到全局</span></span><br><span class="line">        root.eventUtil = factory();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        foo: myFunc</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>应用 UMD 规范的 JS 文件其实就是一个立即执行函数，通过检验 JS 环境是否支持 CommonJS 或 AMD 再进行模块化定义。</p>
+<h1 id="六、ES6-Module"><a href="#六、ES6-Module" class="headerlink" title="六、ES6 Module"></a>六、ES6 Module</h1><p>CommonJS 和 AMD 规范都只能在运行时确定依赖。而 ES6 在语言层面提出了模块化方案, ES6 module 模块编译时就能确定模块的依赖关系，以及输入和输出的变量。ES6 模块化这种加载称为“编译时加载”或者静态加载。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/10/169665de2c04d247?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math.js</span></span><br><span class="line"><span class="comment">// 命名导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 命名导入</span></span><br><span class="line"><span class="keyword">import</span> &#123; add, sub &#125; <span class="keyword">from</span> <span class="string">"./math.js"</span>;</span><br><span class="line">add(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">sub(<span class="number">7</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 默认导入</span></span><br><span class="line"><span class="keyword">import</span> someModule <span class="keyword">from</span> <span class="string">"./utils.js"</span>;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>ES6 模块的运行机制与 CommonJS 不一样。JS 引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。原始值变了，import加载的值也会跟着变。因此，ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。</p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>JS 的模块化规范经过了模块模式、CommonJS、AMD/CMD、ES6 的演进，利用现在常用的 gulp、webpack 打包工具，非常方便我们编写模块化代码。掌握这几种模块化规范的区别和联系有助于提高代码的模块化质量，比如，CommonJS 输出的是值拷贝，ES6 Module 在静态代码解析时输出只读接口，AMD 是异步加载，推崇依赖前置，CMD 是依赖就近，延迟执行，在使用到模块时才去加载相应的依赖。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/26/你不知道的javascript随笔/" rel="next" title="你不知道的javascript随笔">
+                <i class="fa fa-chevron-left"></i> 你不知道的javascript随笔
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/timg.jpg" alt="chenyans">
+            
+              <p class="site-author-name" itemprop="name">chenyans</p>
+              <p class="site-description motion-element" itemprop="description">一个没有梦想的咸鱼。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/nastucy" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模块化？"><span class="nav-text">什么是模块化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写-JS-为什么需要模块化编程？"><span class="nav-text">写 JS 为什么需要模块化编程？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、命名空间"><span class="nav-text">一、命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封装函数"><span class="nav-text">封装函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挂载到全局变量下："><span class="nav-text">挂载到全局变量下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IIFE"><span class="nav-text">IIFE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、CommonJS"><span class="nav-text">二、CommonJS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、AMD"><span class="nav-text">三、AMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、CMD"><span class="nav-text">四、CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD-和-AMD-规范的区别："><span class="nav-text">CMD 和 AMD 规范的区别：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#五、UMD"><span class="nav-text">五、UMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、ES6-Module"><span class="nav-text">六、ES6 Module</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenyans</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

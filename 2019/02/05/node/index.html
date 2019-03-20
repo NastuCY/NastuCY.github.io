@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="什么是NodeJs 编写高性能网络服务器的Javascript工具包(用JS开发服务端程序) 单线程、异步、事件驱动 特点：快，耗内存多 网上一个百万级并发测试，未优化的情况下1M的链接消耗了16G的内存">
+<meta name="description" content="什么是NodeJsNodejs简介 简单的说 Node.js 就是运行在服务端的 JavaScript。 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。  Nodejs的应用场景由于Nodejs目前还不够成熟，因此一般不会用作独立开发，它的主要用途如下  中间层通常在开发应用时">
 <meta name="keywords" content="node,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node">
 <meta property="og:url" content="http://yoursite.com/2019/02/05/node/index.html">
 <meta property="og:site_name" content="陈岩的个人博客">
-<meta property="og:description" content="什么是NodeJs 编写高性能网络服务器的Javascript工具包(用JS开发服务端程序) 单线程、异步、事件驱动 特点：快，耗内存多 网上一个百万级并发测试，未优化的情况下1M的链接消耗了16G的内存">
+<meta property="og:description" content="什么是NodeJsNodejs简介 简单的说 Node.js 就是运行在服务端的 JavaScript。 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。  Nodejs的应用场景由于Nodejs目前还不够成熟，因此一般不会用作独立开发，它的主要用途如下  中间层通常在开发应用时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-05T08:11:00.017Z">
+<meta property="og:updated_time" content="2019-03-20T02:43:07.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node">
-<meta name="twitter:description" content="什么是NodeJs 编写高性能网络服务器的Javascript工具包(用JS开发服务端程序) 单线程、异步、事件驱动 特点：快，耗内存多 网上一个百万级并发测试，未优化的情况下1M的链接消耗了16G的内存">
+<meta name="twitter:description" content="什么是NodeJsNodejs简介 简单的说 Node.js 就是运行在服务端的 JavaScript。 Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。  Nodejs的应用场景由于Nodejs目前还不够成熟，因此一般不会用作独立开发，它的主要用途如下  中间层通常在开发应用时">
 
 
 
@@ -348,7 +348,32 @@
       
 
       
-        <h1 id="什么是NodeJs"><a href="#什么是NodeJs" class="headerlink" title="什么是NodeJs"></a>什么是NodeJs</h1><ul>
+        <h1 id="什么是NodeJs"><a href="#什么是NodeJs" class="headerlink" title="什么是NodeJs"></a>什么是NodeJs</h1><h3 id="Nodejs简介"><a href="#Nodejs简介" class="headerlink" title="Nodejs简介"></a>Nodejs简介</h3><ol>
+<li>简单的说 Node.js 就是运行在服务端的 JavaScript。</li>
+<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。</li>
+<li>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</li>
+</ol>
+<h3 id="Nodejs的应用场景"><a href="#Nodejs的应用场景" class="headerlink" title="Nodejs的应用场景"></a>Nodejs的应用场景</h3><p>由于Nodejs目前还不够成熟，因此一般不会用作独立开发，它的主要用途如下</p>
+<ol>
+<li>中间层<br>通常在开发应用时，出于安全考虑，后端的主服务器都不会直接暴露给客户端，两端之间通常需要有一个中间层进行通信。</li>
+</ol>
+<p>这样做的好处是，如果中间层出现问题，不会影响后端的主服务器。另外，中间层可以做缓存，或者实现一些业务逻辑，起到降低主服务器复杂度，提高性能的作用。</p>
+<p>中间层也可以像CDN一样在各处部署，以提高用户的访问效率。</p>
+<ol start="2">
+<li><p>小型服务<br>可以实现一些小型应用，或某个功能模块。</p>
+</li>
+<li><p>工具类<br>Nodejs可以用来开发一些实用工具，如Webpack、Gulp等等。</p>
+</li>
+</ol>
+<h3 id="Nodejs的优势"><a href="#Nodejs的优势" class="headerlink" title="Nodejs的优势"></a>Nodejs的优势</h3><ol>
+<li><p>Nodejs的语法与前台JavaScript相同，因此便于前端开发入手</p>
+</li>
+<li><p>性能高</p>
+</li>
+<li><p>利于与前端代码结合，例如在做同样一个数据校验时，前后台代码可以共用，不需要单独开发。</p>
+</li>
+</ol>
+<ul>
 <li>编写高性能网络服务器的Javascript工具包(用JS开发服务端程序)</li>
 <li>单线程、异步、事件驱动</li>
 <li>特点：快，耗内存多<ul>
@@ -479,7 +504,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -544,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是NodeJs"><span class="nav-text">什么是NodeJs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是NodeJs"><span class="nav-text">什么是NodeJs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs简介"><span class="nav-text">Nodejs简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs的应用场景"><span class="nav-text">Nodejs的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodejs的优势"><span class="nav-text">Nodejs的优势</span></a></li></ol></li></ol></div>
             
 
           </div>
