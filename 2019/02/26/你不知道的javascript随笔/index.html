@@ -83,19 +83,19 @@
 <meta property="og:site_name" content="陈岩的个人博客">
 <meta property="og:description" content="摘录自掘金原文链接：https://juejin.im/post/5bfaa2e26fb9a04a0440b0e4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b0e35937a479?w=1186&h=1292&f=png&s=105617">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b17a466f8fb0?w=2020&h=814&f=png&s=173375">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b48db6fb628b?w=1178&h=695&f=png&s=60553">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b5220c3a82ce?w=1375&h=962&f=png&s=207062">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b57bbca1ee25?w=523&h=523&f=png&s=68402">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b5a12dfc7024?w=573&h=463&f=png&s=87705">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b5e847b943c0?w=1002&h=717&f=png&s=117669">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b604328156c9?w=789&h=822&f=png&s=132960">
-<meta property="og:updated_time" content="2019-02-26T01:51:59.989Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/8.png">
+<meta property="og:updated_time" content="2019-06-15T07:23:17.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的javascript随笔">
 <meta name="twitter:description" content="摘录自掘金原文链接：https://juejin.im/post/5bfaa2e26fb9a04a0440b0e4">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/25/1674b0e35937a479?w=1186&h=1292&f=png&s=105617">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/26/你不知道的javascript随笔/1.png">
 
 
 
@@ -376,7 +376,7 @@
 <ul>
 <li>引擎<br>从头到尾负责整个 JavaScript 程序的编译及执行过程。</li>
 <li>编译器<br>引擎的好朋友之一，负责语法分析及代码生成等脏活累活(详见前一节的内容)。</li>
-<li>作用域<br>引擎的另一位好朋友，负责收集并维护由所有声明的标识符(变量)组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符的访问权限。<h4 id="1-2-2-对话-代码编译执行过程"><a href="#1-2-2-对话-代码编译执行过程" class="headerlink" title="1.2.2 对话(代码编译执行过程)"></a>1.2.2 对话(代码编译执行过程)</h4><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b0e35937a479?w=1186&amp;h=1292&amp;f=png&amp;s=105617" alt="JavaScript对var a =2;的处理过程"><h4 id="1-2-3-作用域的LHS查询和RHS查询"><a href="#1-2-3-作用域的LHS查询和RHS查询" class="headerlink" title="1.2.3 作用域的LHS查询和RHS查询"></a>1.2.3 作用域的LHS查询和RHS查询</h4>由上图可知,引擎在获得编译器给的代码后,还会对作用域进行询问<strong>变量</strong>.</li>
+<li>作用域<br>引擎的另一位好朋友，负责收集并维护由所有声明的标识符(变量)组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符的访问权限。<h4 id="1-2-2-对话-代码编译执行过程"><a href="#1-2-2-对话-代码编译执行过程" class="headerlink" title="1.2.2 对话(代码编译执行过程)"></a>1.2.2 对话(代码编译执行过程)</h4><img src="/2019/02/26/你不知道的javascript随笔/1.png" alt="JavaScript对var a =2;的处理过程"><h4 id="1-2-3-作用域的LHS查询和RHS查询"><a href="#1-2-3-作用域的LHS查询和RHS查询" class="headerlink" title="1.2.3 作用域的LHS查询和RHS查询"></a>1.2.3 作用域的LHS查询和RHS查询</h4>由上图可知,引擎在获得编译器给的代码后,还会对作用域进行询问<strong>变量</strong>.</li>
 </ul>
 <p>现在将例子改为var a = b;此时引擎会对变量a和变量b都向<strong>作用域</strong>进行查询.查询分为两种:LHS和RHS.其中L代表左.R代表右.即对变量a进行LHS查询.对变量b进行RHS查询.</p>
 <p>单单从表象上看.LHS就是作用域对<code>=</code>左边变量的查询.RHS就是作用域对<code>=</code>右边变量的查询.但实际上并不是这么简单,首先LHS和RHS都是对变量进行查询,这也是我为什么要将例子从var a=2;改为var a=b;两者的区别是两者最终要查询到的东西并不一致.LHS是要查询到变量的声明(而不是变量的值),从而后面可以为其赋值.RHS是要查询到变量最终的值.还有一点,LHS 和 RHS 的含义是“赋值操作的左侧或右侧”并不一定意味着就是“= 赋值操作符的左侧或右侧”。赋值操作还有其他几种形式，因此在概念上最 好将其理解为“赋值操作的目标是谁(LHS)”以及“谁是赋值操作的源头(RHS)”.或者这样理解如果这段代码需要得到该变量的’源值’,则会进行RHS查询.</p>
@@ -411,7 +411,7 @@
 <p><strong>词法作用域位置:</strong> 词法作用域位置范围完全由写代码期间函数所声明的位置来决定.</p>
 <p><strong>理解词法作用域及嵌套:</strong><br>看下例子:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> b = a * <span class="number">2</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log( a, b, c );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  bar( b * <span class="number">3</span> ); </span><br><span class="line">&#125;</span><br><span class="line">foo( <span class="number">2</span> ); <span class="comment">// 2, 4, 12</span></span><br></pre></td></tr></table></figure></p>
 <p>在这个例子中有三个逐级嵌套的作用域。为了帮助理解，可以将它们分成3个逐级包含的”气泡作用域”。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b17a466f8fb0?w=2020&amp;h=814&amp;f=png&amp;s=173375" alt=""></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/2.png" alt=""></p>
 <ul>
 <li>1:包含着整个全局作用域，其中只有一个标识符:foo。</li>
 <li>2:包含着 foo 所创建的作用域，其中有三个标识符:a、bar 和 b。</li>
@@ -712,24 +712,12 @@
 </ul>
 <p>在自己实际工作中,其实是两种混用的,绝大部分情况下都会使用词法作用域风格.因为有时候你真的很难做到完全统一.我现在的习惯是,在写任何函数时,开头第一个就是<code>var me =this;</code>这样在看到函数第一眼,就知道:哦,这个函数是用词法作用域风格的.尤其函数内涉及到回调.这样就避免了写着写着发现this绑定到其他地方去了,一个函数里面this不统一的情况.</p>
 <h3 id="2-6-小结"><a href="#2-6-小结" class="headerlink" title="2.6 小结"></a>2.6 小结</h3><p>(这里总结得很好,我就全部copy了)<br>如果要判断一个运行中函数的 this 绑定，就需要找到这个函数的直接调用位置。找到之后就可以顺序应用下面这四条规则来判断 this 的绑定对象。</p>
-<ul>
-<li><ol>
+<ol>
 <li>由new调用?绑定到新创建的对象。</li>
-</ol>
-</li>
-<li><ol start="2">
 <li>由call或者apply(或者bind)调用?绑定到指定的对象。</li>
-</ol>
-</li>
-<li><ol start="3">
 <li>由上下文对象调用?绑定到那个上下文对象。</li>
-</ol>
-</li>
-<li><ol start="4">
 <li>默认:在严格模式下绑定到undefined，否则绑定到全局对象。</li>
 </ol>
-</li>
-</ul>
 <p>一定要注意，有些调用可能在无意中使用默认绑定规则。如果想“更安全”地忽略 this 绑定，你可以使用一个 DMZ 对象，比如 ø = Object.create(null)，以保护全局对象。    </p>
 <p>ES6 中的箭头函数并不会使用四条标准的绑定规则，而是根据当前的词法作用域来决定 this，具体来说，箭头函数会继承外层函数调用的 this 绑定(无论 this 绑定到什么)。这其实和 ES6 之前代码中的 self = this 机制一样。     </p>
 <p><strong>特别注意:</strong> 其中最需要注意的就是<strong>当你使用jquery或vue时</strong>,此时this是被动态绑定了的.大多数 jQuery 方法将 this 设置为已选择的 dom 元素。使用 Vue.js时，则方法和计算函数通常将 this 设置为 Vue 组件实例。vue文档中<code>所有的生命周期钩子自动绑定 this 上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法 (例如 created: () =&gt; this.fetchTodos())。这是因为箭头函数绑定了父上下文，因此 this 与你期待的 Vue 实例不同，this.fetchTodos 的行为未定义。</code> 也包括使用第三方ajax时,例如axios.解决方法也很简单,要么使用传统的function或者使用<code>let _this=this</code>进行接管.其实当你使用vue时,你默认的思想就是this指的就是vue实例.所以除了钩子函数和axios里会有点影响外,其余还好.</p>
@@ -958,7 +946,7 @@
 <li>类其是描述了一种代码的组织结构形式.</li>
 <li>在js中类常见的就是构造函数,也可以是通过ES6提供的class关键字;继承就是函数;实例化就是对象,常见的就是通过new构造函数实现的.</li>
 </ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b48db6fb628b?w=1178&amp;h=695&amp;f=png&amp;s=60553" alt="类、继承和实例化"></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/3.png" alt="类、继承和实例化"></p>
 <p><strong>注意:</strong> Javascript语言不支持“类”，所谓的”类”也是模拟出的“类”。即使是ES6引入的”类”实质上也是 JavaScript 现有的基于原型的继承的语法糖。</p>
 <h4 id="4-1-1-“类”设计模式"><a href="#4-1-1-“类”设计模式" class="headerlink" title="4.1.1 “类”设计模式"></a>4.1.1 <strong>“类”设计模式</strong></h4><p><strong>一句话</strong>:类其实也是一种设计模式!</p>
 <ul>
@@ -1054,7 +1042,7 @@
 </ul>
 <h4 id="5-1-1-Object-prototype"><a href="#5-1-1-Object-prototype" class="headerlink" title="5.1.1 Object.prototype"></a>5.1.1 <strong>Object.prototype</strong></h4><p>所有普通的 [[Prototype]] 链最终都会指向内置的 Object.prototype。(Object.prototype的[[Prototype]] 最终会指向null.null就是最后的终点).<br>这个 Object.prototype 对象，包含了 JavaScript 中许多通用的功能,例如:toString() , valueOf(), hasOwnProperty(..)和 isPrototypeOf(..)。</p>
 <h4 id="5-1-2-属性设置和屏蔽"><a href="#5-1-2-属性设置和屏蔽" class="headerlink" title="5.1.2 属性设置和屏蔽"></a>5.1.2 <strong>属性设置和屏蔽</strong></h4><p><strong>说明:</strong> 看完本节时,切记不要对<code>myObject.foo = &quot;bar&quot;</code>这种简单的对象属性赋值产生顾虑和疑惑.这种赋值绝对不会对原型链产生任何影响!基本也不会出现赋值不成功的情况.<strong>如果有人敢在团队项目里修改对象的属性描述符,早就被拖出去打死了!!!</strong> 这部分可以看做补充知识,知道有这些奇葩设定就行.其实<strong>这节更应该关注的是<code>myObject.foo</code>的返回值.</strong><br><strong>注意:</strong> 书中提到的动词<code>屏蔽</code>其实指的就是在对象上创建同名属性(原型链上已有该属性).注意不要被绕晕了.还有++就相当于myObject.a=myObject.a+1,注意分解就行,不存在什么特别需要当心的.</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b5220c3a82ce?w=1375&amp;h=962&amp;f=png&amp;s=207062" alt=""></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/4.png" alt=""></p>
 <h3 id="5-2-“类”"><a href="#5-2-“类”" class="headerlink" title="5.2 “类”"></a>5.2 “类”</h3><ul>
 <li>JavaScript里只有对象,没有类!</li>
 <li>JavaScript不需要通过类来抽象对象.而是自己直接创建对象,并定义对象的行为.</li>
@@ -1064,13 +1052,13 @@
 <p><strong>“类”函数模拟类的关键:</strong> 所有的函数默认都会拥有一个名为 prototype 的公有并且不可枚举(参见第 3 章)的属性，它会指向另一个对象.当我们通过new 函数(构造函数)来得到实例对象时,此时new会给实例对象一个内部的 [[Prototype]]属性，实例对象内部的[[Prototype]]属性与构造函数的prototype属性都指向同一个对象.那JS的这个特性怎么模拟类呢?首先<strong>类的本质就是复制!</strong>.明白这点后,我们就需要实现伪复制.我们可以将类里的属性,放在函数的prototype属性里.这样该函数的实例对象就可以通过<a href="原型链">[Prototype]</a>访问这些属性.我们也经常把这种行为称为原型继承(作者后面会疯狂吐槽这个称呼,我后面再解释为什么吐槽).这样就实现了伪”复制”. 可以达到和类相似的效果.</p>
 <p><strong>注意:</strong> 虽然说所有的函数默认都会拥有一个名为 prototype属性.但也有特殊的时候.就不是默认的情况.就是通过bind()硬绑定时.所返回的<strong>绑定函数,它是没有prototype属性的!</strong></p>
 <p><strong>图解真正的类与JS的模拟类:</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b57bbca1ee25?w=523&amp;h=523&amp;f=png&amp;s=68402" alt=""></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/5.png" alt=""></p>
 <p><strong>关于原型继承这个名字的疯狂吐槽:</strong>      作者的吐槽主要集中在”继承”两个字,原因是在面向类的语言中,”继承”意味着复制,但在JavaScript里原型继承却根本不是这个意思,它并没有复制,而是用原型链来实现.所以疯狂吐槽其误导.</p>
 <p><strong>什么是差异继承?</strong> 我根本没听过这个术语,初次看作者所谓的解释,这是啥?他想说啥?后来读了好多遍,终于大概理解了.如果你也看不懂作者想在表达什么,就pass这部分.没必要理解.反而会把你看得更迷惑.<br>好了,我来解释下什么叫差异继承.差异继承就是原型继承的一个不常用的别名.我们知道对象可以通过原型链继承一部分属性,但我们仍可以给对象设置其他有差异不同的属性.这也就可以称为差异继承.</p>
 <h4 id="5-2-2-“构造函数”"><a href="#5-2-2-“构造函数”" class="headerlink" title="5.2.2 “构造函数”"></a>5.2.2 <strong>“构造函数”</strong></h4><p>构造函数之所以是构造函数,是因为它<strong>被new调用</strong>,如果没被new调用,它就是一个普通函数.实际上,new会劫持所有普通函数并用构造对象的形式来调用它,并且无论如何都会构造返回一个对象.</p>
 <h4 id="5-2-3-技术"><a href="#5-2-3-技术" class="headerlink" title="5.2.3 技术"></a>5.2.3 <strong>技术</strong></h4><p>关于两种“面向类”的技巧,我这就不说明了,理解了这部分第一第二章关于this的使用,就很简单了.</p>
 <p><strong>prototype.constructor:</strong><br>为了正确理解constructor.我特意在标题上加上prototype.是想强调:一个对象访问constructor时,会默认访问其原型对象上的constructor属性.</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b5a12dfc7024?w=573&amp;h=463&amp;f=png&amp;s=87705" alt=""></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/6.png" alt=""></p>
 <p><strong>注意:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* .. */</span> &#125;</span><br><span class="line">Foo.prototype = &#123; <span class="comment">/* .. */</span> &#125;; <span class="comment">// 有时候我们会需要创建一个新原型对象,因此也不会有默认的constructor属性指向构造函数</span></span><br><span class="line"><span class="comment">// 需要在 Foo.prototype 上“修复”丢失的 .constructor 属性</span></span><br><span class="line"><span class="comment">// 关于 defineProperty(..)，参见第 3 章 </span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty( Foo.prototype, <span class="string">"constructor"</span> , &#123;</span><br><span class="line">  enumerable: <span class="literal">false</span>,<span class="comment">//不可枚举</span></span><br><span class="line">  writable: <span class="literal">true</span>,</span><br><span class="line">  configurable: <span class="literal">true</span>,</span><br><span class="line">  value: Foo <span class="comment">// 让 .constructor 指向 Foo</span></span><br><span class="line">&#125; );</span><br><span class="line"><span class="comment">//上面这种方法是比较严谨,也比较麻烦的.并且使用Object.defineProperty()风险是很大的.</span></span><br><span class="line"><span class="comment">//所以我们实际是这样修改的</span></span><br><span class="line">Foo.prototype.constructor=Foo; <span class="comment">//直接将其赋值Foo 唯一要注意的是此时constructor是可枚举的.会被实例对象的for..in..遍历到.</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="5-3-原型-继承"><a href="#5-3-原型-继承" class="headerlink" title="5.3 (原型)继承"></a>5.3 (原型)继承</h3><p><strong>原型对象到原型对象的继承:</strong><br>例如:Bar.prototype 到 Foo.prototype 的委托关系，<br>正确的JavaScript中“原型风格”:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.myName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params">name,label</span>) </span>&#123; </span><br><span class="line">  Foo.call( <span class="keyword">this</span>, name ); </span><br><span class="line">  <span class="keyword">this</span>.label = label;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们创建了一个新的 Bar.prototype 对象,并且它的[[Prototype]] 关联Foo.prototype </span></span><br><span class="line">Bar.prototype = <span class="built_in">Object</span>.create( Foo.prototype );</span><br><span class="line"><span class="comment">// 注意!Object.create()是返回一个新的对象,所以现在没有 Bar.prototype.constructor 了 </span></span><br><span class="line"><span class="comment">// 如果你需要这个属性的话可能需要手动修复一下它</span></span><br><span class="line">Bar.prototype.myLabel = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.label;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Bar( <span class="string">"a"</span>, <span class="string">"obj a"</span> );</span><br><span class="line"></span><br><span class="line">a.myName(); <span class="comment">// "a"</span></span><br><span class="line">a.myLabel(); <span class="comment">// "obj a"</span></span><br></pre></td></tr></table></figure></p>
 <p>错误用法:</p>
@@ -1143,10 +1131,10 @@
 <li>下面提到的显式伪多态(详见第四章),其实指的就是使用call()方法这种硬绑定.</li>
 <li>注意ES6 class模拟类的写法我就没具体列出了.实际上class 仍然是通过 [[Prototype]] 机制实现的,不过是个表面简洁的语法糖.</li>
 </ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b5e847b943c0?w=1002&amp;h=717&amp;f=png&amp;s=117669" alt=""></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/7.png" alt=""></p>
 <p>虽然书中对显式伪多态称为”丑陋的”,还用了一个语气动词”呸!”.虽然这样不好,但有时用call真的很方便,所以用得也很多.</p>
 <h4 id="6-2-2-委托控件对象"><a href="#6-2-2-委托控件对象" class="headerlink" title="6.2.2 委托控件对象"></a>6.2.2 <strong>委托控件对象</strong></h4><p><strong>最大特点:</strong> 通过对象载体来模拟父子,并<strong>通过Object,create(…)来对两个对象进行关联</strong>.并<strong>通过委托的形式进行引用</strong>.与上节中提到的类形式还有一个区别:对象foo构建后,需要手动调用setUp方法进行初始化.故对象的构建与初始化是分开的.而构造函数形式则是在new 构造函数时, 同时进行了对象构建与初始化.(关于这点我下面还会再说明的)</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/1674b604328156c9?w=789&amp;h=822&amp;f=png&amp;s=132960" alt=""></p>
+<p><img src="/2019/02/26/你不知道的javascript随笔/8.png" alt=""></p>
 <p>关于书中这句<code>使用类构造函数的话，你需要(并不是硬性要求，但是强烈建议)在同一个步骤中实现构造和初始化。然而，在许多情况下把这两步分开(就像对象关联代码一样)更灵活。</code>的理解:使用类构造函数形式,当我们使用<code>new 构造函数</code>时,其实是在<strong>一步实现</strong>对象的构建和对象数据的初始化(通过构造函数里的call) ;使用这种委托形式,我们是分别通过<code>Object.create( ... );</code>构建对象和<code>foo.setUp( ...);</code>来初始化的.即我们是分两步实现的.这样分开的话其实是更加灵活,也更符合编程中的关注分离原则.</p>
 <h3 id="6-3-更简洁的设计"><a href="#6-3-更简洁的设计" class="headerlink" title="6.3 更简洁的设计"></a>6.3 更简洁的设计</h3><p>这节也是一样通过两者的对比来突显委托设计模式的各种优点.这里我就不再对书中的例子进行解读.如果你真正理解了类和委托的话,其实是很简单的.如果觉得复杂的话,可以在纸上理一下函数和对象之间的关系,下面我就只总结下这里提到委托设计模式的优点,当然核心是更简洁.</p>
 <p><strong>简洁体现在:</strong></p>
